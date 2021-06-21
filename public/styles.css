@@ -1,0 +1,22 @@
+i {
+    color: red;
+    font-weight: bold;
+}
+
+table, td {
+    vertical-align: top;
+}
+
+#result-wrapper {
+    width: 100%;
+    border-collapse: collapse
+}
+
+#result-wrapper td {
+    width: 50%;
+}
+
+#result-wrapper > tbody > tr > td:nth-child(1),
+#result-wrapper > thead > tr > td:nth-child(1) {
+    border-right: #000 solid thin;
+}

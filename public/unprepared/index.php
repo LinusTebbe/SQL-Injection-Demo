@@ -1,41 +1,21 @@
 <?php
+
 /**
- * @var PreparedStatementService $preparedStatementService
- * @var UnpreparedStatementService $unpreparedStatementService
- * @var TableRenderingService $tableRenderingService
+ * @var NavigationRenderingService $navigationRenderingService
  */
 
 declare(strict_types=1);
 
+use SqlInjectionDemo\Service\NavigationRenderingService;
+
 require __DIR__ . '/../../src/boot.php';
-
-use SqlInjectionDemo\Service\PreparedStatementService;
-use SqlInjectionDemo\Service\TableRenderingService;
-use SqlInjectionDemo\Service\UnpreparedStatementService;
-
-$data = [];
-
-if (count($_POST) > 0) {
-    $data = $unpreparedStatementService->getUser($_POST['input']);
-}
 ?>
-<html lang="de">
-    <head>
-        <title>
-            SQL Injection DEMO
-        </title>
-        <link rel="stylesheet" href="/styles.css">
-    </head>
+
+<!DOCTYPE html>
+<html lang="en">
+    <?= require __DIR__ . '/../../parts/head.php' ?>
     <body>
-        <form method="post">
-            <label>
-                Nach E-Mail suchen:
-                <input name="input" value="<?= $_POST['input']?>">
-            </label>
-            <input type="submit" value="Absenden">
-        </form>
-        <table>
-            <?=$tableRenderingService->renderTable($data) ?>
-        </table>
+        <?= require __DIR__ . '/../../parts/breadcrumbs/unprepared.php' ?>
+        <?= $navigationRenderingService->renderNavigation(NavigationRenderingService::VARIATION_UNPREPARED) ?>
     </body>
 </html>

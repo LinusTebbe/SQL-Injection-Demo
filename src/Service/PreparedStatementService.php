@@ -11,9 +11,9 @@ class PreparedStatementService extends AbstractStatementService
     public function buildStatement(string $query, array $parameters): array
     {
         $statement = $this->pdo->prepare($query);
-        foreach ($parameters as $parameter => $value) {
-            $statement->bindParam($parameter, $value);
-        }
+        $statement->execute($parameters);
+
         return $statement->fetchAll(PDO::FETCH_ASSOC);
+
     }
 }

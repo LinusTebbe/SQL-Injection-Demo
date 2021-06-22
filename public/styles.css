@@ -1,6 +1,38 @@
+html, body {
+    font-family: Arial, sans-serif;
+}
+
+a, a:visited {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.navigation {
+    border-collapse: separate;
+    border-spacing: 10px 0;
+}
+
+.navigation h3 {
+    display: inline;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
 i {
     color: red;
     font-weight: bold;
+}
+
+i.success {
+    color: green;
 }
 
 table, td {

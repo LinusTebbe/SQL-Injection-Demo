@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
+use SqlInjectionDemo\Service\NavigationRenderingService;
 use SqlInjectionDemo\Service\PreparedStatementService;
-use SqlInjectionDemo\Service\TableRenderingService;
+use SqlInjectionDemo\Service\ResultRenderingService;
 use SqlInjectionDemo\Service\UnpreparedStatementService;
 
 require_once __DIR__ . '/../vendor/autoload.php';
@@ -17,4 +18,5 @@ $dbConnection = new PDO($_ENV['DB_DSN'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWOR
 $preparedStatementService = new PreparedStatementService($dbConnection);
 $unpreparedStatementService = new UnpreparedStatementService($dbConnection);
 
-$tableRenderingService = new TableRenderingService();
+$resultRenderingService = new ResultRenderingService();
+$navigationRenderingService = new NavigationRenderingService();

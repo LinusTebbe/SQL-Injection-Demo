@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace SqlInjectionDemo\Service;
 
-
-class TableRenderingService
+class ResultRenderingService
 {
-    public function renderTable(array $data): string
+    public function renderTableResult(?array $data): string
     {
         $result = '';
 
@@ -26,5 +25,19 @@ class TableRenderingService
             $result .= "</tr>";
         }
         return $result;
+    }
+
+    public function renderLoginResult(?string $data): string
+    {
+        if ($data === null) {
+            return '';
+        }
+
+        return $data
+            ? sprintf(
+                '<i class="success">Eingeloggt als "%s".</i>',
+                $data
+            )
+            : "<i>Login fehlgeschlagen</i>";
     }
 }

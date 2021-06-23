@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace SqlInjectionDemo\Service;
 
 use PDO;
-use PDOStatement;
 
 abstract class AbstractStatementService
 {
@@ -28,7 +27,7 @@ abstract class AbstractStatementService
 
     public function getUser(string $userInput): array {
         return $this->buildStatement(
-            'SELECT id, first_name, last_name, email FROM `users` WHERE email=:email LIMIT 1',
+            'SELECT first_name, last_name, email FROM `users` WHERE email=:email LIMIT 1',
             [
                 ':email' => $userInput,
             ]

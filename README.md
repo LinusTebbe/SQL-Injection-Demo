@@ -50,4 +50,4 @@ cd public && php -S localhost:8080
 ```
 afterwards the demo site will be available at [http://localhost:8080/](http://localhost:8080/)
 
-##Have fun playing around with it
+## Have fun playing around with it
